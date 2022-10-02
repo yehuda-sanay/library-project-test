@@ -1,18 +1,37 @@
-import "./BooksTable.css";
-import React from "react";
+import TableContainer from '@mui/material/TableContainer';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 export default function BooksTable({books}) {
-  console.log(books[0]);
+    console.log("3:",  books)
   return (
-    <div className="books-table">
-      <h1>BooksTable</h1>
-      <table>
-        <thead>
-          {books[0]? Object.keys(books[0])?.map(key=><th>{key}</th>):"" }
-        </thead>
-      </table>
-    </div>
-  );
+    <TableContainer component={Paper}>
+    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+            <TableRow>
+            {books?
+                (Object.keys(books[0]).map((item,index)=><TableCell key={index}  align="right">{item}</TableCell>))
+                :
+                (<TableCell> </TableCell>)
+            }
+            </TableRow>
+        </TableHead>
+        <TableBody>
+            {books?
+                (books.map((obj,index) =>
+                    <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                    {Object.values(obj).map(item =><TableCell  align="right">{item}</TableCell>)}
+                    </TableRow>))
+                :
+                (<TableCell></TableCell>)
+            }
+        </TableBody>
+    </Table>
+    </TableContainer>
+    );
 }
-
 
