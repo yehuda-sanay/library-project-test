@@ -5,9 +5,10 @@ import BooksProvaider from './components/context/booksProvaider.component'
 
 export default function Routing(){
     return(
+        <BooksProvaider>
         <Routes>
-            <Route path='/' element={<BooksProvaider><Books/></BooksProvaider>}/>
-            <Route path='Details' element={<BooksProvaider><BooksDetails/></BooksProvaider>}/>
+            <Route path='/' element={<Books/>}/>
+            <Route path='Details' element={<BooksDetails/>}/>
         </Routes>
-    )
+    </BooksProvaider>)
 }
