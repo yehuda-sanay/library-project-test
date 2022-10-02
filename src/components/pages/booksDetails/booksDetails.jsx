@@ -7,7 +7,7 @@ function BooksDetails() {
 const {books,setBooks}=useContext(booksContext)
 return (
   <div className="books-data">
-      <h1>BooksData</h1>
+      <h1 data-testid="h1-BooksDetails">BooksDetails</h1>
       <BooksTable books={books}/>
     </div>
   );

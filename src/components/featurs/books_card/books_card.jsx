@@ -29,7 +29,7 @@ export default function BooksCard({books}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" >
+        <Button className="btn_card" size="small" >
           <a className="link_card" href={link} target="_blank" rel="noopener noreferrer">read</a>
         </Button>
       </CardActions>
